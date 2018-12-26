@@ -29,3 +29,9 @@ class User
 project/user/login
 project/user/userLogin
 
+Д/З
+Подключить bootstrap в header.php и footer.php
+В хедер вывести navbar в этом меню должны быть ссылки на главную и на страницу регистрации и входа на сайт
+
+страница регистрации должна быть вида /user/register
+

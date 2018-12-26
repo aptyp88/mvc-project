@@ -1,1 +1,4 @@
-<p>index</p>
+<?php
+
+// echo $data['content'];
+echo $content;
