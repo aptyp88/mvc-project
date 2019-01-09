@@ -14,9 +14,9 @@
     <nav class="navbar navbar-expand navbar-light bg-primary">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Главная страница <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Регистрация </a>
-                <a class="nav-item nav-link" href="#">Вход </a>
+                <a class="nav-item nav-link active" href="/">Главная страница <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/user/register">Регистрация </a>
+                <a class="nav-item nav-link" href="/user/login">Вход </a>
             </div>
         </div>
     </nav>

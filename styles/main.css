@@ -8,3 +8,13 @@ body{
 .navbar-light .navbar-nav .nav-link{
     color:#fff;
 }
+
+.login{
+    margin:0 auto;
+    width: 30%;
+}
+
+.register{
+    margin:0 auto;
+    width: 30%;
+}
