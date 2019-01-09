@@ -1,0 +1,10 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #ccc;
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color:#fff;
+}
