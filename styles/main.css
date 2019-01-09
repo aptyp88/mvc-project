@@ -10,11 +10,13 @@ body{
 }
 
 .login{
+    padding-top: 70px;
     margin:0 auto;
     width: 30%;
 }
 
 .register{
+    padding-top: 70px;
     margin:0 auto;
     width: 30%;
 }
