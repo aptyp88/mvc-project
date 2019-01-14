@@ -16,13 +16,13 @@ class UserController extends Controller
     {
         $title = 'Регистрация';
         $content = '';
-        View::render('user/register', compact($title, $content));
+        View::render('user/register', compact('title', 'content'));
     }
 
     public function login()
     {
         $title = 'Логин';
         $content = '';
-        View::render('user/login', compact($title, $content));
+        View::render('user/login', compact('title', 'content'));
     }
 }

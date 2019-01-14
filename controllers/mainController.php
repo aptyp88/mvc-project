@@ -9,7 +9,7 @@ class MainController extends Controller
 
     public function index()
     {
-        $title = 'Main page';
+        $title = 'Главная страница';
         $content = 'lorem test';
         View::render('main/index', compact('title', 'content'));
         //метод compact создает ассоциативный массив ['title' = $title] ['content' => $content]
