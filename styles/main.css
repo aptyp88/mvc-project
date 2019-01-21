@@ -20,3 +20,11 @@ body{
     margin:0 auto;
     width: 30%;
 }
+
+footer p{
+    margin-top: 50px;
+    border: 1px dotted black;
+    height: 80px;
+    width: 100%;
+    text-align: center;
+}
