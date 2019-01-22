@@ -20,7 +20,7 @@ for($i = 0; $i < count($books); $i++)
             <form method="POST" action="index.php">
                 <input type="hidden" name="action" value="delete">
                 <input type="hidden" name="id" value="'. $book->id.'">
-                <button class="fas fa-trash-alt"></button>
+                <!--<button class="fas fa-trash-alt"></button>-->
             </form>
             </td>';  
     echo '</tr>';
