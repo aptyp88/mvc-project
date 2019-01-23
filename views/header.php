@@ -19,6 +19,7 @@
                 <a class="nav-item nav-link active" href="/">Главная страница <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="/user/register">Регистрация </a>
                 <a class="nav-item nav-link" href="/user/login">Вход </a>
+                <a class="nav-item nav-link" href="/user/allusers">Все пользователи </a>
             </div>
         </div>
     </nav>

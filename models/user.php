@@ -19,4 +19,11 @@ class User extends Model
         $pz -> execute([$email]);
         return $pz -> fetch(PDO::FETCH_OBJ) -> count;
     }
+
+    public function allUsers()
+    {
+        $pz = $this -> pdo -> prepare('SELECT * FROM ' . $this -> table);
+        $pz -> execute();
+        return $pz -> fetchAll(PDO::FETCH_OBJ);
+    }
 }

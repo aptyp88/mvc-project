@@ -43,4 +43,18 @@ class UserController extends Controller
         $content = '';
         View::render('user/login', compact('title', 'content'));
     }
+
+    public function allUsers()
+    {
+        $users = new User();
+        $users -> allUsers();
+        $title = 'Все пользователи';
+        $content = '';
+        View::render('user/allusers', compact('title', 'content'));
+    }
+
+    public function deleteUser()
+    {
+
+    }
 }
