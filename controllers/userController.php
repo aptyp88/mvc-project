@@ -5,7 +5,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-
+        
     }
 
     public function index()
@@ -44,17 +44,27 @@ class UserController extends Controller
         View::render('user/login', compact('title', 'content'));
     }
 
-    public function allUsers()
+    public function allusers()
     {
-        $users = new User();
-        $users -> allUsers();
+        $allUsers = new User();
+        $users = $allUsers -> allUsers();
         $title = 'Все пользователи';
         $content = '';
-        View::render('user/allusers', compact('title', 'content'));
+        View::render('user/allusers', compact('title', 'users'));
     }
 
-    public function deleteUser()
+    public function delete()
     {
+        if(isset($_POST['user']) && $_POST['user']=='delete')
+        {
+            $id = $_POST['id'];
+            $us = new User();
 
+            $us -> delete($id);
+            
+        }
+        header('Location: ../user/allusers');
+        
+        
     }
 }
