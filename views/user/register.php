@@ -1,3 +1,11 @@
+<?php
+  if(Message::has()):
+?>
+
+<div class="alert alert-<?=Message::getType()?>"><?=Message::getText() ?></div>
+
+<?php endif ?>
+
 <div class="register">
 <form method="POST" action="/user/register">
   <div class="form-row">

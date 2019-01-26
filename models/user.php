@@ -9,8 +9,7 @@ class User extends Model
         $pass = md5($pass);
         $pz = $this -> pdo -> prepare('INSERT INTO ' . $this -> table . '(email, password) VALUES(?,?)');
         $pz -> execute([$email, $pass]);
-        // print_r( $pz);
-        return $this -> pdo -> lastInsertId();
+        //return $this -> pdo -> lastInsertId();
     }
 
     public function checkEmail($email)
@@ -20,11 +19,20 @@ class User extends Model
         return $pz -> fetch(PDO::FETCH_OBJ) -> count;
     }
 
+    public function checkUser($email, $pass)
+    {
+        $pass = md5($pass);
+        $pz = $this -> pdo -> prepare('SELECT * FROM ' . $this-> table . ' WHERE email=? AND password=?');
+        $pz -> execute([$email, $pass]);
+        return $pz -> fetch(PDO::FETCH_OBJ);
+    }
+
     public function allUsers()
     {
         
         $pz = $this -> pdo -> prepare('SELECT * FROM ' . $this -> table);
         $pz -> execute();
+
         return $pz -> fetchAll(PDO::FETCH_OBJ);
     }
 
@@ -33,9 +41,8 @@ class User extends Model
         $this -> id = $id;
         // echo $this -> id;
         // $this -> pdo -> query('DELETE FROM ' . $this -> table . 'WHERE id='. $this -> id);
-        $sql = 'DELETE FROM ' . $this -> table . 'WHERE id = ?';
+        $sql = 'DELETE FROM ' . $this -> table . ' WHERE id = ?';
         $pz = $this -> pdo -> prepare($sql);
         $pz -> execute([$this -> id]);
-
     }
 }

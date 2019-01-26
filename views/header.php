@@ -19,9 +19,19 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="/">Главная страница <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="/user/register">Регистрация </a>
-                <a class="nav-item nav-link" href="/user/login">Вход </a>
-                <a class="nav-item nav-link" href="/user/allusers">Все пользователи </a>
+                <?php if(!$_SESSION['user_id'])
+                {
+                    echo '<a class="nav-item nav-link" href="/user/login">Вход </a>';
+                    echo '<a class="nav-item nav-link" href="/user/allusers">Все пользователи </a>';
+                }
+                else
+                {
+                    echo '<a class="nav-item nav-link" href="/user/exit">Выход </a>';
+                }
+                    
+                ?>
+                <!-- <a class="nav-item nav-link" href="/user/login">Вход </a> -->
+                <!-- <a class="nav-item nav-link" href="/user/allusers">Все пользователи </a> -->
             </div>
         </div>
     </nav>

@@ -22,12 +22,17 @@ class UserController extends Controller
             $userModel = new User();
             if($userModel -> checkEmail($email))
             {
-                echo 'error! email not unique';
+                Message::set('danger', 'email существует');
+                header('Location: /user/register');
+                exit;
             }
             else
             {
-                $id = $userModel ->addUser($email, $pass);
-                header('Location: ../index.php');
+                $userModel ->addUser($email, $pass);
+                Message::set('success', 'Регистрация прошла успешно');
+                //var_dump($id);
+                header('Location: /user/login');
+                exit;
             }
             // echo 'email ' . $pass . '<br>';
             // echo 'id = ' . $id;
@@ -39,15 +44,45 @@ class UserController extends Controller
 
     public function login()
     {
+        if($_POST)
+        {
+            $email = $_POST['email'];
+            $pass = $_POST['pass'];
+            $userModel = new User();
+            $user = $userModel -> checkUser($email, $pass);
+            // var_dump($user);
+            if(!$user)
+            {
+                Message::set('danger', 'Неверный логин или пароль');
+                header('Location: /user/login');
+                exit;
+            }
+            else
+            {
+                Session::set('user_id', $user->id);
+                header('Location: /');
+                exit;
+            }
+        }
         $title = 'Логин';
         $content = '';
         View::render('user/login', compact('title', 'content'));
     }
 
+    public function exit()
+    {
+        // $userID = $_SESSION['user_id'];
+        // echo $userID;
+
+        Session::delete('user_id');
+        header('Location: /');
+        exit;
+    }
+
     public function allusers()
     {
         $allUsers = new User();
-        $users = $allUsers -> allUsers();
+        $users = $allUsers -> all();
         $title = 'Все пользователи';
         $content = '';
         View::render('user/allusers', compact('title', 'users'));
@@ -64,7 +99,5 @@ class UserController extends Controller
             
         }
         header('Location: ../user/allusers');
-        
-        
     }
 }

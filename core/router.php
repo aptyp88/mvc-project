@@ -4,6 +4,7 @@ class Router
 {
     public static function start()
     {
+        session_start();
         $url = isset($_GET['url']) ? $_GET['url'] : 'main';
         /*
             user/login  userController метод login()
