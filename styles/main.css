@@ -33,3 +33,12 @@ table{
     text-align: center;
     margin: 20px auto;
 }
+
+.review{
+    width: 50%;
+    margin: 20px auto;
+}
+
+.radio{
+    margin: 20px 0;
+}
