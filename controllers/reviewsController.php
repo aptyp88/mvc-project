@@ -27,10 +27,21 @@ class ReviewsController extends Controller
         View::render('reviews/reviews', compact('title', 'rev'));
     }
 
-    public function addReview()
+    public function addreview()
     {
-        $text = isset($_POST['text']);
-        $rate = isset($_POST['radioViews']);
+        if($_POST)
+        {
+            $userID = isset($_SESSION['user_id']);
+            $text = isset($_POST['text']);
+            $rate = isset($_POST['radioViews']);
+            $reviewModel = new Reviews();
+            $reviewModel -> addReview($text, $rate, $userID);
+        }
+        header('Location: /reviews/reviews');
+        exit;
+        
+        
+        
         
 
     }
