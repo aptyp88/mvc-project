@@ -82,7 +82,7 @@ class UserController extends Controller
     public function allusers()
     {
         $allUsers = new User();
-        $users = $allUsers -> all();
+        $users = $allUsers -> allUsers();
         $title = 'Все пользователи';
         $content = '';
         View::render('user/allusers', compact('title', 'users'));

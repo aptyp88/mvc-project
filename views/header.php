@@ -30,6 +30,7 @@
                 {
                     echo '<a class="nav-item nav-link" href="/reviews/reviews">Отзывы </a>';
                     echo '<a class="nav-item nav-link" href="/user/exit">Выход </a>';
+                    echo '<a class="nav-item nav-link" href="/user/allusers">Все пользователи </a>';
                 }
                     
                 ?>

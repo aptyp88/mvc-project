@@ -6,6 +6,8 @@ class User extends Model
 
     public function addUser($email, $pass)
     {
+        // echo '123';
+
         $pass = md5($pass);
         $pz = $this -> pdo -> prepare('INSERT INTO ' . $this -> table . '(email, password) VALUES(?,?)');
         $pz -> execute([$email, $pass]);
@@ -30,7 +32,9 @@ class User extends Model
     public function allUsers()
     {
         
-        $pz = $this -> pdo -> prepare('SELECT * FROM ' . $this -> table);
+        $pz = $this -> pdo -> prepare('SELECT users.id, users.name, users.email, users.password, users.created_at, COUNT(reviews.user_id) AS count
+                                        FROM users LEFT JOIN reviews ON reviews.user_id = users.id
+                                        GROUP BY users.id');
         $pz -> execute();
 
         return $pz -> fetchAll(PDO::FETCH_OBJ);
