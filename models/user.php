@@ -8,7 +8,6 @@ class User extends Model
     {
         // echo '123';
 
-        $pass = md5($pass);
         $pz = $this -> pdo -> prepare('INSERT INTO ' . $this -> table . '(email, password) VALUES(?,?)');
         $pz -> execute([$email, $pass]);
         //return $this -> pdo -> lastInsertId();

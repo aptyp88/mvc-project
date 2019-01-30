@@ -20,6 +20,8 @@ class UserController extends Controller
             $email = $_POST['email'];
             $pass = $_POST['pass'];
             $userModel = new User();
+            $pass = md5($pass);
+
             if($userModel -> checkEmail($email))
             {
                 Message::set('danger', 'email существует');
